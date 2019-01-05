@@ -1,2 +1,6 @@
-# levels-content
-Developed in site PUCtec at University PUC Minas
+Created by Codrops
+
+http://www.codrops.com
+
+Please read about our license: http://tympanus.net/codrops/licensing/
+

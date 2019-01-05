@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Steps and levels content</title>
+		<link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+	</head>
+	<body>
+		<div class="container">	
+			
+			<div class="main clearfix">
+				<div id="menu" class="nav">					
+					<ul> 
+						<li>
+							<a href="#" class="primeiraFase" id="primeiraFase">
+								
+								<span class="primeiraFase" id="primeiraFase">1ª Fase</span>
+								<br/>
+								<p class="primeiraFase txt-btn-desc"  id="primeiraFase">XXXXXXXXX</p>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="segundaFase" id="segundaFase">
+								
+								<span class="segundaFase"  id="segundaFase">2ª Fase</span>
+								<br/>
+								<p class="segundaFase txt-btn-desc"  id="segundaFase">XXXXXXXXXX</p>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="terceiraFase" id="terceiraFase">
+								
+								<span class="terceiraFase" id="terceiraFase">3ª Fase</span>
+								<br/>
+								<p class="terceiraFase txt-btn-desc"  id="terceiraFase">XXXXXXXXXXX</p>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="quartaFase" id="quartaFase">
+								
+								<span class="quartaFase" id="quartaFase">4ª Fase</span>
+								<br/>
+								<p class="quartaFase txt-btn-desc"  id="quartaFase">XXXXXXXXXXXXXXX</p>
+							</a>
+						</li>
+					</ul>	
+				</div>
+			</div>
+		</div><!-- /container -->
+		<div id="conteudoDinamico" >
+			
+		</div>
+		
+		<script>
+			//  The function to change the class
+			var changeClass = function (r,className1,className2) {
+				var regex = new RegExp("(?:^|\\s+)" + className1 + "(?:\\s+|$)");
+				if( regex.test(r.className) ) {
+					r.className = r.className.replace(regex,' '+className2+' ');
+			    }
+			    else{
+					r.className = r.className.replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"),' '+className1+' ');
+				}
+				console.log(r.className);
+			    return r.className;
+			};	
+
+			
+			//  Creating our button in JS for smaller screens
+			var menuElements = document.getElementById('menu');
+			menuElements.insertAdjacentHTML('afterBegin','<button type="button" id="menutoggle" class="navtoogle" aria-hidden="true"><i aria-hidden="true" class="icon-menu"> </i> Menu</button>');
+
+			//  Toggle the class on click to show / hide the menu
+			document.getElementById('menutoggle').onclick = function() {
+				//changeClass(this, 'navtoogle active', 'navtoogle');
+				
+			}
+
+			
+
+		
+			document.onclick = function(e) {
+				var mobileButton = document.getElementById('menutoggle'),
+					buttonStyle =  mobileButton.currentStyle ? mobileButton.currentStyle.display : getComputedStyle(mobileButton, null).display;
+				
+				 if(buttonStyle === 'block' && e.target !== mobileButton && new RegExp(' ' + 'active' + ' ').test(' ' + mobileButton.className + ' ')) {
+				 	//changeClass(mobileButton, 'navtoogle active', 'navtoogle');
+					
+				}
+				var html = "";
+				switch (e.target.id) {
+					case 'primeiraFase':
+						// var varClassTarget1 = document.getElementsByClassName('primeiraFase');
+
+						var idConteudo = document.getElementById('conteudoDinamico');
+						
+						html = "<ul>";
+						html += "<li>xxxxxxxx</li>";
+						html += "<li>xxxxxxx</li>";
+						html += "<li>xxxxxxxxxxx</li>";
+						html += "<li>xxxxxxxxxxxxxx</li>";
+						html += "<li>xxxxxxxxxxxxxxxxxxxx</li>";
+						html += "<li>xxxxxxxxxxxxx</li>";
+						html += "</ul>";
+						html += "<p>xxxxxxx</p>";
+						
+						console.log(idConteudo);
+						idConteudo.innerHTML = html;
+
+						
+					break;
+					case 'segundaFase':
+					html = "teste";
+						var idConteudo = document.getElementById('conteudoDinamico');
+						
+						html = "<ul>";
+						html += "<li>xxxxxxx</li>";
+						html += "<li>xxxxxxxxxxxx</li>";
+						html += "</ul>";
+						html += "<p>xxxxxxxxxx</p>";
+						idConteudo.innerHTML = html;
+						
+					break;
+					case 'terceiraFase':
+
+					html = "terceira fase";
+						var idConteudo = document.getElementById('conteudoDinamico');
+
+						html = "<ul>";
+						html += "<li>xxxxxxxxyyyyyyyyyy</li>";
+						html += "<li>yyyyyyyyyyyyyyyyyy</li>";
+						html += "<li>yyyyyyyyyyyyyyyyyyyy </li>";
+						html += "<li>yyyyyyyyyxxxxxxxxxx</li>";
+						html += "</ul>";
+						html += "<p>xxxxxxxx</p>";
+						
+						idConteudo.innerHTML = html;
+						
+					break;
+					case 'quartaFase':
+					html = "quarta fase";
+						var idConteudo = document.getElementById('conteudoDinamico');
+
+						html = "<ul>";
+						html += "<li>GGGGGGGGGGGGG</li>";
+						html += "</ul>";
+
+						idConteudo.innerHTML = html;
+					break;
+
+				default:
+				break;
+				}
+			}
+		</script>
+	</body>
+</html>

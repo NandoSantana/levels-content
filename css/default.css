@@ -1,0 +1,21 @@
+
+.clearfix:before, .clearfix:after { content: " "; display: table; }
+.clearfix:after { clear: both; }
+
+.main,
+.container > header {
+	width: 100%;
+	margin: 0 auto;
+	padding: 50px;
+}
+
+.main {
+	/*max-width: 800px;*/
+	width: 900px;
+	height: 249px;
+	
+}
+
+.txt-btn-desc{
+	font-size: 17px;
+}
